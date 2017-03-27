@@ -7,8 +7,8 @@
 #  it moves data around too much. Each time an insertion is made,
 #  all elements in a greater position are shifted.
 #======================================================================= 
-def insertionsort( aList ):
-  for i in range( 1, len( aList ) ):
+def insertionsort(aList):
+  for i in range(1, len(aList)):
     tmp = aList[i]
     k = i
     while k > 0 and tmp < aList[k - 1]:

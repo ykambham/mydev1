@@ -29,7 +29,7 @@ def radixsort(aList):
  
     # empty lists into aList array
     a = 0
-    for b in range( RADIX ):
+    for b in range(RADIX):
       buck = buckets[b]
       for i in buck:
         aList[a] = i

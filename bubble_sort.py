@@ -15,13 +15,13 @@
 #  1] For each element at index k, from n to i exclusive, loop:
 #  2] If the element at k is less than that at k-1, swap them.
 #======================================================================= 
-def bubblesort( A ):
-  for i in range( len( A ) ):
-    for k in range( len( A ) - 1, i, -1 ):
-      if ( A[k] < A[k - 1] ):
-        swap( A, k, k - 1 )
+def bubblesort(A):
+  for i in range(len(A)):
+    for k in range(len(A)-1, i, -1):
+      if A[k] < A[k-1]:
+        swap(A, k, k - 1)
  
-def swap( A, x, y ):
+def swap(A, x, y):
   tmp = A[x]
   A[x] = A[y]
   A[y] = tmp

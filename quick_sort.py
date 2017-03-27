@@ -39,7 +39,7 @@ def _quicksort( aList, first, last ):
  
  
 def partition( aList, first, last ) :
-    pivot = first + random.randrange( last - first + 1 )
+    pivot = first + random.randrange(last - first + 1)
     swap( aList, pivot, last )
     for i in range( first, last ):
       if aList[i] <= aList[last]:
