@@ -169,15 +169,7 @@ numbers = [3, 5, 8, 10]
 import itertools
 print [a for a in itertools.permutations(numbers)]
 
-#without itertools
-def permute(LIST):
-    length=len(LIST)
-    if length <= 1:
-        yield LIST
-    else:
-        for n in range(0,length):
-            for end in permute( LIST[:n] + LIST[n+1:] ):
-                yield [ LIST[n] ] + end
+from permute import permute
 result = []
 for x in permute(numbers):
     result.append(x)
