@@ -1,4 +1,4 @@
-# Return the number that's not repated even times
+# Return the number that's not repeated even times
 a = [1, 2, 3, 1, 2, 4, 4, 6, 6, 7, 7, 7, 7]
 countDict = {}
 for num in a:
