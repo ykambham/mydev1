@@ -75,18 +75,15 @@ Output : Yes
 
 def is_string_rotated(str1, str2, rotation):
     clock_wise_rotation = str1[rotation:] + str1[:rotation]
-    anti_clock_wise_rotation = str1[-rotation:][::-1] + str1[:len(str1) - rotation]
+    anti_clock_wise_rotation = str1[-rotation::-1] + str1[:len(str1) - rotation]
     if  str2 == clock_wise_rotation or anti_clock_wise_rotation:
         return True
         
-
-
 print is_string_rotated("amazon", "azonam", 2)
 print is_string_rotated("amazon", "onamaz", 2)
 
 
 #Efficiently check if a string has duplicates without using any additional data structure
-
 def check_duplicates(str1):
     for i in range(len(str1)):
         for j in range(i + 1, len(str1)):
@@ -138,3 +135,32 @@ def check_k_anagrams(str1, str2, k):
         return False
 
 print check_k_anagrams("anagram", "grammar", 3)
+
+
+# Check if the string is a palindrome by removing just one letter
+def is_palindrome(str1):
+    if str1 == str1[::-1]:
+        return True
+
+def check_if_palindrome_possible(str1):
+    for i in range(len(str1)):
+        if is_palindrome(str1[:i] + str1[i+1:]):
+            return str1[i]
+
+print check_if_palindrome_possible("abcbea")
+
+
+# Check if a string can become empty by recursively deleting a given sub-string
+
+def check_strings(str1, str2):
+    if str1 == str2:
+        print "Can be emptied"
+    else:
+        if str1.find(str2) > 0:
+            if len(str1) > 0:
+                check_strings(str1.replace(str2, ''), str2)
+        else:
+            print "Not possible!"
+            return
+
+check_strings("geegeeksks", 'geeksa')
