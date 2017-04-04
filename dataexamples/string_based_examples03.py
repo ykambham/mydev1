@@ -13,33 +13,6 @@ def find_sub_strings(str1):
 print find_sub_strings("abcab")
 
 
-#Find the missing number in a string of numbers with no separator
-# e.g. 89101113 Missing = 12 (8, 9, 10, 11, 13)
-
-def find_missing_numer(num1):
-    i = 1
-    j = 0
-    while i < 6 :
-        Find = True
-        while j+i < len(num1):
-            a = int(num1[j:j+i])
-            b = int(num1[j+i:j+i+i])
-            if b - a > 2 or b - a <0:
-                i += 1
-                j = 0
-                Find = False
-                break
-            else:
-                if b - a == 2:
-                    missing_Number = a + 1
-                j += i
-        if Find:
-            print "Missing Number is:",missing_Number
-            break
-
-
-find_missing_numer("59606163")
-
 import itertools
 for p in itertools.product("abc", repeat=3):
     print p
