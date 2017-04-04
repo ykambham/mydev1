@@ -1,6 +1,6 @@
 # Check if two strings are anagrams in optimized way and not using in built libraries
 # like collections 
-from atk import Value
+
 def check_anagram(str1, str2):
     is_anagram = False
     # if lengths are not same then they are not anagrams
