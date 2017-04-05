@@ -37,10 +37,6 @@ def print_directory_contents(dir):
 
 print_directory_contents(os.path.abspath('/home/ykambham/workspace/Testing'))
 
-
-
-
-
 def f(*args, **kwargs):
     print (args, kwargs)
 

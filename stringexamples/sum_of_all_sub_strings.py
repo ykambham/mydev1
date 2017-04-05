@@ -1,22 +1,3 @@
-# Fins subsequence of a^nb^iC^j n, i, k >=1
-# e.g. in abbc sub sequences are abc, abc, abbc
-
-def find_sub_sequence(str1):
-    a_cnt = 0
-    b_cnt = 0
-    c_cnt = 0
-    for i in range(len(str1)):
-        if str1[i] == 'a':
-            a_cnt = 1 + 2 * a_cnt
-        elif str1[i] == 'b':
-            b_cnt = a_cnt + 2 * b_cnt
-        elif str1[i] == 'c':
-            c_cnt = b_cnt + 2 * c_cnt
-    return c_cnt
-
-str1 = 'abcabc'
-print find_sub_sequence(str1)
-
 # Sum of all sub strings 
 # Complexity o(n2)
 def sub_strings(str1):
@@ -28,6 +9,7 @@ def sub_strings(str1):
 
 def sum_of_sub_strings(str1):
     return sum(int(a) for a in sub_strings(str1) if a)
+
 
 # Same problem with complexity O(n))
 '''
