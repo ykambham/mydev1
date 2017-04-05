@@ -1,4 +1,4 @@
-
+# binary search
 def binary_search(a_list, item):
     first = 0
     last = len(a_list) - 1
@@ -17,6 +17,4 @@ def binary_search(a_list, item):
                 
 a_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 print binary_search(a_list, 10)
-        
-        
         
