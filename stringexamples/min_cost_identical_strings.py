@@ -28,9 +28,9 @@ def find_min_cost(str1, str2, costi=10, costj=20):
             else:
                 x -= 1
                 cost += costi
-        print x, y
     return cost + x * costi + y* costj
 
 print find_min_cost("abcd", "acdb")
 print find_min_cost("ef", "gh")
 print find_min_cost("xyz", "xzy")
+print find_min_cost("abcde", "afgh")
