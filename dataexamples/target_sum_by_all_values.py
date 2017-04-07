@@ -16,19 +16,21 @@
 # +1+1+1+1-1 = 3
 #
 # There are 5 ways to assign symbols to make the sum of nums be target 3.
+import itertools
+
+def get_combinations(a_list, repeat):
+    return itertools.product(a_list, repeat=repeat)
 
 def find_possible_ways(a_list, target):
     operators = ['+', '-']
-    combos = []
-    for j in range(len(operators)):
-        expression = []
+    res = 0
+    combos = get_combinations(operators, len(a_list))
+    for combo in combos:
+        count= 0
         for i in range(len(a_list)):
-            expression.append(operators[j] + str(a_list[i]))
-    count = 0
-    for item in combos:
-        pass
-            
-    return count
+            count += int(combo[i] + str(a_list[i]))
+        if count == target:
+            res += 1
+    return res
     
-
-print find_possible_ways([1, 2, 2], 3)
+print find_possible_ways([1, 1, 1, 1, 1], 3)
