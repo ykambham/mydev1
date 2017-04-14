@@ -1,7 +1,7 @@
 Generate ssh keys (if you already have ssh keys, you can use them) and register them with gerrit
-..ssh-keygen -t rsa
-..Add key in Gerrit, Register your email address
-..Test ssh -p 29418 <gerrit login>@hostname
+    ssh-keygen -t rsa
+    Add key in Gerrit, Register your email address
+    Test ssh -p 29418 <gerrit login>@hostname
 
 Set up your git environment variables
     git config --global user.email "your.name@hpe.com"
@@ -14,8 +14,8 @@ Set up your git environment variables
     git config --global core.ignorecase true
     git config --global core.autocrlf false
     git config --global core.longpaths true
-....git config --list
+    git config --list
 
 Clone your first repository (ssh keys must be in place)
-..ssh-add
-..git clone
+    ssh-add
+    git clone
