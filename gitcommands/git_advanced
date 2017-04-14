@@ -26,16 +26,16 @@ Modify an open review in gerrit and push a new change:
   
   if you are modifying your own change:
   git pull --rebase (to update with the latest bits)
-..Resolve any merge conflicts
-..git add...
-..git commit --amend (to reuse the same commit id)
-..git review <destination branch> (to push a new patch set)
+  Resolve any merge conflicts
+  git add...
+  git commit --amend (to reuse the same commit id)
+  git review <destination branch> (to push a new patch set)
 
-..For someone else's review, you want to get their changes out of git:
-..git checkout master (it's always good to start from master)
-..git review -d <review#>
-..You will get a new branch in your local repo
-..Set the branch to a tracking branch so rebase with origin.master:
+  For someone else's review, you want to get their changes out of git:
+  git checkout master (it's always good to start from master)
+  git review -d <review#>
+  You will get a new branch in your local repo
+  Set the branch to a tracking branch so rebase with origin.master:
     git branch --set-upstream
     git pull --rebase
   make necessary changes to files, add them
@@ -95,9 +95,9 @@ Determine which branches have a specific commit id:
   git log --graph origin/rel/3.00..origin/master
   
 Add a new branch with history to an existing git repo:
-..git checkout -b newbranch frombranch
-..git commit 
-..git push origin newbranch
+  git checkout -b newbranch frombranch
+  git commit 
+  git push origin newbranch
 
 Run aggressive cleanup on the central git repo:
     cd ~gerrit/review_site/git/<repo>.git
