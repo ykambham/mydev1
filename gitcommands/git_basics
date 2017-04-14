@@ -1,0 +1,14 @@
+Clone - git clone
+List branches - git branch -a 
+Status - git status
+log - git log --follow <file> or git log <file>
+Add files - git add <file> or git add -A or git add *
+Diff - git diff
+Commit - git commit or git commit -m "message"
+Update - git up or git pull --rebase
+    git up takes care of untracked files
+Branches - git checkout -b <branch> origin/<branch>
+
+Determine if you need to "squash" commits -- gitr rebase -i HEAD~3
+git branch –merged It lists the branches that have been merged into the current branch.
+git branch –no-merged It lists the branches that have not been merged.

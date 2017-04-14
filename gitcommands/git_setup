@@ -1,0 +1,21 @@
+Generate ssh keys (if you already have ssh keys, you can use them) and register them with gerrit
+..ssh-keygen -t rsa
+..Add key in Gerrit, Register your email address
+..Test ssh -p 29418 <gerrit login>@hostname
+
+Set up your git environment variables
+    git config --global user.email "your.name@hpe.com"
+    git config --global user.name "Your Name"
+    git config --global gitreview.username "first-name.last-name"
+    git config --global color.ui "true" # Turn on color
+    git config --global http.proxy "proxy.houston.hpecorp.net:8080"
+    git config --global core.editor "abolute path of editor for commit messages"
+    git config --global core.trustctime false
+    git config --global core.ignorecase true
+    git config --global core.autocrlf false
+    git config --global core.longpaths true
+....git config --list
+
+Clone your first repository (ssh keys must be in place)
+..ssh-add
+..git clone

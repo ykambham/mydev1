@@ -1,0 +1,105 @@
+Sparse-checkouts(Checkout out one or more directories, not the whole repo):
+  mkdir workdir
+  cd workdir
+  git init
+  git remote add origin ssh://first.last@host:29418.repo.git
+  git config core.sparseCheckout true
+  echo 'dir_to_clone/' > .git/info/sparse-checkout  (/ at the end is required)
+  git pull origin master 
+  
+cherry-pick: Merge a single commit between branches (rather than the whole branch):
+  Record the commit id that you want to pull into your current branch
+  git branch -a (make sure you are on the branch you want to pull the commit into)
+  git cherry-pick -n <commit id> (the -n option will NOT do an automatic commit)
+  git diff --cached (review the changes that are staged for the commit)
+  git commit (do the actual commit to your local repo)
+  
+Merge a branch (perhaps a feature branch) back to master:
+  git checkout <name>
+  git merge mybranch
+  If conflicts:
+    Resolve
+    git add 
+    git commit 
+    
+Modify an open review in gerrit and push a new change:
+  
+  if you are modifying your own change:
+  git pull --rebase (to update with the latest bits)
+..Resolve any merge conflicts
+..git add...
+..git commit --amend (to reuse the same commit id)
+..git review <destination branch> (to push a new patch set)
+
+..For someone else's review, you want to get their changes out of git:
+..git checkout master (it's always good to start from master)
+..git review -d <review#>
+..You will get a new branch in your local repo
+..Set the branch to a tracking branch so rebase with origin.master:
+    git branch --set-upstream
+    git pull --rebase
+  make necessary changes to files, add them
+  git commit --amend
+  git review <branch>
+  
+Creating patches with git:
+..To create a patch, use:
+    git format-patch
+    see 'git help format-patch' for options
+  To create a single patch from one commit id:
+    git format-patch -1 <sha>
+  To create more than one patch (one per commit id):
+    git format-patch -3 HEAD
+    This will create 3 patches starting with HEAD
+  To create a "super patch" can combine multiple submit in one patch:
+    git format-patch -3 HEAD –stdout > super.patch
+    This will put the last 3 patches in a single patch file
+  To apply the patch, first check it.  This won't apply the patch, it will tell you if it can be done cleanly.
+    git apply –check  foo.patch
+    To really apply the patch:
+    git apply foo.patch
+    See 'git help apply' for options
+  If patches aren't clean and won't apply with 'git apply', you might need to resort to this:
+    patch –p1 < foo.patch
+    
+Draft review:
+  git review -D <branch>
+  
+Remove one file from a commit and stash the file before rebasing:
+    $ git log (copy and paste your commit message to somewhere safe
+    $ git reset --soft <tracking branch>
+    If you local branch is tracking master then, $ git reset --soft origin/master
+    This will remove your commit and put your files back into the staging area.
+    Make sure to save your commit message before doing the reset, it will be lost
+    Unstage the file or files to remove from the commit
+    $ git reset HEAD <file>
+    $ git status
+    You should now see that the file has been unstaged and is in your local workspace
+    $ git commit
+    Commit the files  (this will commit the files that are staged)
+    You will still have your unstaged file(s)
+    $ git rebase --pull
+    This will fail because you workspace is dirty, you have a file that is not staged and committed.
+    $ git stash
+    To stash the files in your workspace
+    $ git pull --rebase
+    This will work now if your workspace is clean
+    To bring the stashed files back
+    $ git stash pop
+    Note that you can switch to another branch and pop the stash there.
+    
+Determine which branches have a specific commit id:
+  git branch -a --contains commmit-id
+  git log --graph origin/rel/3.00..origin/master
+  
+Add a new branch with history to an existing git repo:
+..git checkout -b newbranch frombranch
+..git commit 
+..git push origin newbranch
+
+Run aggressive cleanup on the central git repo:
+    cd ~gerrit/review_site/git/<repo>.git
+    script -q -c 'git fsck' 2>&1 | tee <log>
+    script -q -c 'git gc --prune --aggressive' 2>&1 | tee -a <log>
+    script -q -c 'git prune' 2>&1 | tee -a <log>
+    script -q -c 'git fsck' 2>&1 | tee -a  <log>
