@@ -61,6 +61,8 @@ Creating patches with git:
     See 'git help apply' for options
   If patches aren't clean and won't apply with 'git apply', you might need to resort to this:
     patch –p1 < foo.patch
+  Extract commits between revisions R1 and R2, and apply them on top of the current branch using git am to cherry-pick them:
+    git format-patch -k --stdout R1..R2 | git am -3 -k
     
 Draft review:
   git review -D <branch>
