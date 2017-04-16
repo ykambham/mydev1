@@ -2,10 +2,7 @@
 name = "i am an employee at HPE"
 if name.find("am"):
     print name.index("am")
-    
 
-    
-print(order.sort(key=lambda s: s['value']))
 
 # lambda to multiply sales
 sales = [1, 2, 3, 4, 5, 6]

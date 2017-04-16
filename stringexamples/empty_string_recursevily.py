@@ -11,4 +11,4 @@ def check_strings(str1, str2):
             print "Not possible!"
             return
 
-check_strings("geegeeksks", 'geeksa')
+check_strings("geegeeksks", 'geeks')

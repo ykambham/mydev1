@@ -8,12 +8,4 @@ def largest_sum(elements):
     return largest
 print largest_sum(elements)
 
-import unittest
-class TestSum(unittest.TestCase):
-    def init(self):
-        self.elements = elements
-    def test_elemtents(self):
-        self.assertIsNotNone(self.elements, "List exists")
-        
-unittest.main()
         

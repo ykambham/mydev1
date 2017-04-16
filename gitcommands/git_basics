@@ -17,13 +17,13 @@ Update - git up or git pull --rebase
 
 Branches - git checkout -b <branch> origin/<branch>
 
-Determine if you need to "squash" commits -- gitr rebase -i HEAD~3
+Determine if you need to "squash" commits -- git rebase -i HEAD~3
 
 It lists the branches that have been merged into the current branch - git branch –merged 
 
 It lists the branches that have not been merged. - git branch –no-merged 
 
-List commits between two commits - git log --oneline commit1  .commit2
+List commits between two commits - git log --oneline commit1...commit2
 
 Change author of a commit 
       git filter-branch -f --env-filter "GIT_AUTHOR_NAME='NewAuthorName'; GIT_AUTHOR_EMAIL='authoremail@gmail.com'; \
@@ -49,5 +49,5 @@ Rename local branch - git branch -m oldname newname
 
 Reverting changes:
     git revert commit1 commit3 commit3
-    git revert HEAD~3  HEAD
+    git revert HEAD~3..HEAD
     If not published yest - git reset commit

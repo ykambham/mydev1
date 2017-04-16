@@ -1,4 +1,5 @@
 # print first non-repeating character in a string
+import collections
 a = 'geeksforgeek'
 countList = collections.Counter(a).items()
 smallestIndex = ''
