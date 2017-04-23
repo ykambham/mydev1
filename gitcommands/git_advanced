@@ -27,7 +27,7 @@ Modify an open review in gerrit and push a new change:
   if you are modifying your own change:
   git pull --rebase (to update with the latest bits)
   Resolve any merge conflicts
-  git add...
+  git add ...
   git commit --amend (to reuse the same commit id)
   git review <destination branch> (to push a new patch set)
 
@@ -43,7 +43,7 @@ Modify an open review in gerrit and push a new change:
   git review <branch>
   
 Creating patches with git:
-..To create a patch, use:
+  To create a patch, use:
     git format-patch
     see 'git help format-patch' for options
   To create a single patch from one commit id:

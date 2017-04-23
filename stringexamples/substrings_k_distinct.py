@@ -19,7 +19,6 @@ import collections
 def count_subtrings_k_distrinct(s, k):
     res = 0
     for i in range(len(s)):
-        dist_count = {}
         for j in range(i+1, len(s)+1):
             s1 = s[i:j]
             if len(s1) >= k and len(collections.Counter(s1).items()) == k:

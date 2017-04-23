@@ -6,6 +6,7 @@ combinations = [1, 2, 3], [2, 4], [3, 3]
 
 def find_combos(Alist, target):
     count = 0
+    sum = 0
     for i in range(len(Alist)):
         total_sum = Alist[i]
         for j in range(i+1, len(Alist)):
